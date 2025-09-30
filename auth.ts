@@ -4,6 +4,9 @@ import { db } from "./src/index"
 import * as schema from './src/db/schema'
 
 export const auth = betterAuth({
+    emailAndPassword: {
+        enabled: true,
+    },
     database: drizzleAdapter(db, {
         provider: "pg",
     }),
