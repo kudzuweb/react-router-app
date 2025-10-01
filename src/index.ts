@@ -1,22 +1,22 @@
 import 'dotenv/config';
 import { drizzle, PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import { eq } from 'drizzle-orm'
-import { usersTable } from './db/schema';
+import { user as userTable } from './db/schema';
 
 export const db = drizzle(process.env.DATABASE_URL!)
 
 async function main() {
-    const user: typeof usersTable.$inferInsert = {
+    const user: typeof userTable.$inferInsert = {
+        id: "1",
         name: 'John',
-        age: 30,
         email: 'john@example.com',
     }
 
 
-    const users = await db.select().from(usersTable);
+    const users = await db.select().from(userTable);
     console.log('Getting all users from the database:', users)
 
-    await db.insert(usersTable).values(users);
+    await db.insert(userTable).values(users);
     console.log('New user created!')
 
     // const users: {
@@ -27,14 +27,14 @@ async function main() {
     // }
 
     await db
-        .update(usersTable)
+        .update(userTable)
         .set({
-            age: 31,
+            id: "0",
         })
-        .where(eq(usersTable.email, user.email));
+        .where(eq(userTable.email, user.email));
     console.log('User info updated!')
 
-    await db.delete(usersTable).where(eq(usersTable.email, user.email));
+    await db.delete(userTable).where(eq(userTable.email, user.email));
     console.log('User deleted!')
 
 };

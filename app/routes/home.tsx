@@ -1,27 +1,34 @@
+import { authClient } from "~/lib/auth-client";
 import type { Route } from "./+types/home";
-import Landing from "../landing/landing";
+import Landing from "./landing";
 import SignIn from "./signin"
 import SignUp from "./signup";
-import { authClient } from "~/lib/auth-client";
+import { Welcome } from "~/routes/welcome";
+
 
 export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "ForeverDM" },
+    { name: "The DM's trusty helper", content: "Every plotter needs a minion" },
   ];
 }
 
 export default function Home() {
-  const { data: session, isLoading, error } = authClient.useSession();
+  const { data: session, isPending, error } = authClient.useSession();
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isPending) return <p>Loading...</p>;
   if (error) return <p>Auth error. Try again</p>
 
-  // if (!session) {
-  return <div>
-    <Landing />
-    <SignIn />
-    <SignUp />
-  </div>
-  // }
+  if (!session) {
+    return <div>
+      <Landing />
+    </div>
+  }
+
+  return (
+    <div>
+      <Welcome />
+    </div>
+  )
+
 }
