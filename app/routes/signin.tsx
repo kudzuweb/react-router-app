@@ -45,7 +45,7 @@ export default function SignIn() {
             <h2>
                 Sign In
             </h2>
-            <Form onSubmit={signIn}>
+            <Form id="signin" onSubmit={signIn}>
                 <input
                     type="email"
                     value={email}

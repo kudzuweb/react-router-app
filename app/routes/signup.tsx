@@ -46,7 +46,7 @@ export default function SignUp() {
             <h2>
                 Sign Up
             </h2>
-            <Form onSubmit={signUp}>
+            <Form id="signup" onSubmit={signUp}>
                 <input
                     type="email"
                     value={email}
