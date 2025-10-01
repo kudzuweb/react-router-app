@@ -21,7 +21,7 @@ export default function SignIn() {
                 },
                 onSuccess: (ctx) => {
                     setIsLoading(false)
-                    navigate("/home")
+                    // navigate("/routes/home")
 
                 },
                 onError: (ctx) => {

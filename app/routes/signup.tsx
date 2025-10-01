@@ -22,7 +22,7 @@ export default function SignUp() {
                 },
                 onSuccess: (ctx) => {
                     setIsLoading(false)
-                    navigate("/home")
+                    // navigate("/routes/home")
 
                 },
                 onError: (ctx) => {
