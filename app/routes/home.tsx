@@ -1,16 +1,15 @@
 import { authClient } from "~/lib/auth-client";
 import type { Route } from "./+types/home";
-import Landing from "../landing/landing";
+import Landing from "./landing";
 import SignIn from "./signin"
 import SignUp from "./signup";
-import { Welcome } from "~/welcome/welcome";
-// import Welcome from "~/welcome/welcome";
+import { Welcome } from "~/routes/welcome";
 
 
 export function meta({ }: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "ForeverDM" },
+    { name: "The DM's trusty helper", content: "Every plotter needs a minion" },
   ];
 }
 
@@ -23,14 +22,13 @@ export default function Home() {
   if (!session) {
     return <div>
       <Landing />
-      <SignIn />
-      <SignUp />
     </div>
   }
 
-  return
-  <div>
-    <Welcome />
-  </div>
+  return (
+    <div>
+      <Welcome />
+    </div>
+  )
 
 }
