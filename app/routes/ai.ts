@@ -22,7 +22,7 @@ export async function action({ request }: Route.ActionArgs) {
                 - Notes added via tools
 
                 Capabilities you should proactively offer:
-                - NPC archetypes with name seeds, mannerisms, hooks, and quick stat heuristics (no proprietary statblocks)
+                - NPC archetypes with first and last name seeds, species, mannerisms, hooks, and quick stat heuristics (no proprietary statblocks)
                 - Scene description: travel, taverns, social beats, combat flavor, environmental details
                 - SRD-only rules clarifications; cite “SRD” not page numbers unless provided in uploaded docs
                 - Summarize character sheets; extract tags like race, class, background, ideals/bonds/flaws
@@ -30,7 +30,11 @@ export async function action({ request }: Route.ActionArgs) {
 
                 When making rules calls:
                 - Prefer 2024 SRD v5.2 where possible. If user requests “5.1 only,” stay within SRD 5.1 scope.
-`;
+                
+                Instructions:
+                -When user requests an NPC archetype, provide 2-3 different archetypes to choose from.
+                -When user requests a scene, provide scenic details, background activity and NPCs for players to potentially interact with, but do not script
+                the player character's interactions. The scenes should be set up to act as a hook into whatever the DM wants to lead the players toward.`,
         messages: convertToModelMessages(messages),
     });
 
