@@ -2,7 +2,6 @@ import * as React from "react"
 import { authClient } from "~/lib/auth-client"
 import { Link } from "react-router"
 import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from "lucide-react"
-
 import {
     NavigationMenu,
     NavigationMenuContent,
@@ -12,6 +11,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from "../components/ui/navigation-menu"
+import SignOut from "./signout"
 
 // const components: { title: string; to: string; description: string }[] = [
 //     {
@@ -52,14 +52,15 @@ import {
 // ]
 
 export function NavBar() {
-    const { session } = authClient.useSession()
+    const { data } = authClient.useSession()
+    const session = data?.session
 
-    if (!session) return (
+    if (session) return (
         <NavigationMenu viewport={false}>
             <NavigationMenuList>
                 < NavigationMenuItem >
                     <NavigationMenuLink asChild className={navigationMenuTriggerStyle()} >
-                        <Link to="/docs" > Sign Out </Link>
+                        <SignOut />
                     </NavigationMenuLink>
                 </NavigationMenuItem>
             </NavigationMenuList>

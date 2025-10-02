@@ -9,7 +9,8 @@ export default function SignIn() {
 
     const navigate = useNavigate()
 
-    const signIn = async () => {
+    const signIn = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault()
         await authClient.signIn.email(
             {
                 email,

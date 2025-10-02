@@ -3,7 +3,7 @@ import type { Route } from "./+types/home";
 import Landing from "./landing";
 import SignIn from "./signin"
 import SignUp from "./signup";
-import { Welcome } from "~/routes/welcome";
+import Welcome from "~/routes/welcome";
 
 
 export function meta({ }: Route.MetaArgs) {
