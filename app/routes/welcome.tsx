@@ -7,7 +7,7 @@ export default function Welcome() {
   return (
     <div>
       <NavBar />
-      <p>Hello {data?.user.name}</p>
+      <p>Hello, (Dungeon)Master {data?.user.name}</p>
       <Chat />
     </div>
   )
