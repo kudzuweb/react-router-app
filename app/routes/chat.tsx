@@ -11,7 +11,7 @@ import {
 import { useRef, useState } from "react";
 
 export default function Chat() {
-    const { messages, sendMessage, status } = useChat({
+    const { messages, sendMessage, status, error } = useChat({
         transport: new DefaultChatTransport({
             api: '/ai',
         }),
@@ -95,14 +95,14 @@ export default function Chat() {
                                 value={message}
                                 onChange={handleTextareaChange}
                                 onKeyDown={handleKeyDown}
-                                placeholder="Ask anything"
+                                placeholder="Ask and ye shall receive, Master"
                                 className="min-h-0 resize-none rounded-none border-0 p-0 text-base placeholder:text-muted-foreground focus-visible:ring-0 focus-visible:ring-offset-0 scrollbar-thin dark:bg-transparent"
                                 rows={1}
                             />
                         </div>
                     </div>
-
-                    <div
+                    {/* why doesn't this button render? also throws no error but still */}
+                    {/* <div
                         className="flex items-center gap-2"
                         style={{ gridArea: isExpanded ? "footer" : "trailing" }}
                     >
@@ -117,7 +117,7 @@ export default function Chat() {
                                 </Button>
                             )}
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </form>
         </div>
