@@ -6,4 +6,5 @@ route("api/auth/*", "routes/api.auth.$.ts"),
 route("welcome", "routes/welcome.tsx"),
 route("chat", "routes/chat.tsx"),
 route("ai", "./routes/ai.ts"),
+route('imagegen', "./routes/imagegen.ts")
 ] satisfies RouteConfig;

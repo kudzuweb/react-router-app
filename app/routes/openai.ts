@@ -35,7 +35,7 @@ export async function action({ request }: Route.ActionArgs) {
     const { messages }: { messages: UIMessage[] } = await request.json();
 
     const result = streamText({
-        model: openai("gpt-4o-mini"),
+        model: openai("gpt-5-chat-latest"),
         system: SYSTEM,
         messages: convertToModelMessages(messages),
     });
